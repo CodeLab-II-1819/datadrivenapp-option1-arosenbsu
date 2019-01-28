@@ -30,23 +30,26 @@ int main() {
 
 			switch (Qchoice) {
 			case 1:
-				keyword = "Paris";
-				break;
+				
 			case 2:
-				keyword = "DreamWorks";
-				break;
+				
 			case 3:
 			
 			case 4:
-
+				keyword = "Paris";
+				break;
 			case 5:
-
+				keyword = "DreamWorks";
+				break;
 			case 6:
-
+				keyword = "Uber";
+				break;
 			case 7:
-
+				keyword = "Dog";
+				break;
 			case 8:
-
+				keyword = "@katyperry";
+				break;
 			case 9:
 
 			case 10:
