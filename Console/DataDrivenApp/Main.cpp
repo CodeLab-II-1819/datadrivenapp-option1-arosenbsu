@@ -6,13 +6,13 @@ using namespace std;
 
 int main() {
 	bool answered = false;
-	vector<string> options = { "1. Total Number of Tweets", "2. Number of Tweets that mention money", "3. Number of Tweets that mention politics", "4. Show Tweets containing the word 'Paris'", "5. Show Tweets containing the word 'DreamWorks'", "6. Show Tweets containing the word 'Uber'", "7. Show Tweets Containing the word 'Dog'", "8. Show Tweets that contain '@katyperry'", "9. Count Tweets that contain '@kendalljenner'",  "10. Count Tweets Containing the word 'Music'" };
+	vector<string> options = { "1. Total Number of Tweets", "2. Number of Tweets that talk about Politics", "3. Number of Tweets that talk aout Money", "4. Show Tweets containing the word 'Paris'", "5. Show Tweets containing the word 'DreamWorks'", "6. Show Tweets containing the word 'Uber'", "7. Show Tweets Containing the word 'Dog'", "8. Show Tweets that contain '@katyperry'", "9. Count Tweets that contain '@kendalljenner'",  "10. Count Tweets Containing the word 'Music' or 'music'" };
 
 		do {
+			int tweetcount = 0;
 			int tweetnum = 0;
 			char reset;
 			char yesno;
-			bool correctQ = true;
 			int Qchoice;
 			string keyword = "notset";
 			string Tweets;
@@ -36,19 +36,72 @@ int main() {
 
 			switch (Qchoice) {
 			case 1:
-				cout << "Loading..." << endl;
+				cout << "Swiftly Sifting..." << endl;
 				while (getline(inFile, Tweets)) {
 					tweetnum++;
 				}
-				cout << "There are " << tweetnum << " Tweets in the file" << endl; cout << "Press R to reset" << endl;
+				cout << "There are " << tweetnum << " Tweets in the file" << endl;
+				cout << "Press Any key to reset" << endl;
 				cin >> reset;
-				if (reset == 'R' || reset == 'r') {
+				{
 					system("CLS");
 					break;
 				}
 			case 2:
-				
+				cout << "Swiftly Sifting..." << endl;
+				while (!inFile.eof()) {
+					getline(inFile, Tweets);
+					if (Tweets.find("Politics") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("politics") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("Trump") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("Vote") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("Brexit") != Tweets.npos) {
+						tweetcount++;
+					}
+				}
+				cout << "There are " << tweetcount << " Tweets in the file that talk about Politics" << endl;
+				cout << "Press Any key to reset" << endl;
+				cin >> reset;
+				{
+					system("CLS");
+					break;
+				}
+
 			case 3:
+				cout << "Swiftly Sifting..." << endl;
+				while (!inFile.eof()) {
+					getline(inFile, Tweets);
+					if (Tweets.find("Money") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("money") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("cash") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("Cash") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("$") != Tweets.npos) {
+						tweetcount++;
+					}
+				}
+				cout << "There are " << tweetcount << " Tweets in the file that talk about Money" << endl;
+				cout << "Press Any key to reset" << endl;
+				cin >> reset;
+				{
+					system("CLS");
+					break;
+				}
 			
 			case 4:
 				keyword = "Paris";
@@ -66,9 +119,38 @@ int main() {
 				keyword = "@katyperry";
 				break;
 			case 9:
-
+				cout << "Swiftly Sifting..." << endl;
+				while (!inFile.eof()) {
+					getline(inFile, Tweets);
+					if (Tweets.find("@kendalljenner") != Tweets.npos) {
+						tweetcount++;
+					}
+				}
+				cout << "There are " << tweetcount << " Tweets in the file containing the phrase '@kendalljenner'" << endl;
+				cout << "Press Any key to reset" << endl;
+				cin >> reset;
+				{
+					system("CLS");
+					break;
+				}
 			case 10:
-
+				cout << "Swiftly Sifting..." << endl;
+				while (!inFile.eof()) {
+					getline(inFile, Tweets);
+					if (Tweets.find("Music") != Tweets.npos) {
+						tweetcount++;
+					}
+					if (Tweets.find("music") != Tweets.npos) {
+						tweetcount++;
+					}
+				}
+				cout << "There are " << tweetcount << " Tweets in the file containing the word 'Music' or 'music'" << endl;
+				cout << "Press Any key to reset" << endl;
+				cin >> reset;
+				{
+					system("CLS");
+					break;
+				}
 			default:
 				system("CLS");
 				break;
@@ -87,9 +169,9 @@ int main() {
 
 					}
 
-					cout << "Press R to reset" << endl;
+					cout << "Press Any Key to reset" << endl;
 					cin >> reset;
-					if (reset == 'R' || reset == 'r') {
+					{
 						system("CLS");
 					}
 
