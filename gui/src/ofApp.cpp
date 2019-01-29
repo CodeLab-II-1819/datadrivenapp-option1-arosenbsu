@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	//test
+	
 }
 
 //--------------------------------------------------------------
@@ -12,7 +12,20 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	ofColor colorOne(57, 42, 40);
+	ofColor colorTwo(0, 0, 0);
 
+	ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_LINEAR);
+
+	ofSetLineWidth(6);
+	ofDrawLine(1910, 990, 1910, 10);
+	ofDrawLine(1910, 10, 10, 10);
+	ofDrawLine(10, 10, 10, 990);
+	ofDrawLine(10, 990, 1910, 990);
+
+	ofDrawLine(1860, 940, 1860, 250);
+	of
+	
 }
 
 //--------------------------------------------------------------
