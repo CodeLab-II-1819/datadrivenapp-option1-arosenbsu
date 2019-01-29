@@ -9,7 +9,7 @@ int main() {
 	vector<string> options = { "1. Total Number of Tweets", "2. Number of Tweets that mention money", "3. Number of Tweets that mention politics", "4. Show Tweets containing the word 'Paris'", "5. Show Tweets containing the word 'DreamWorks'", "6. Show Tweets containing the word 'Uber'", "7. Show Tweets Containing the word 'Dog'", "8. Show Tweets that contain '@katyperry'", "9. Count Tweets that contain '@kendalljenner'",  "10. Count Tweets Containing the word 'Music'" };
 
 		do {
-			
+			int tweetnum = 0;
 			char reset;
 			char yesno;
 			bool correctQ = true;
@@ -27,10 +27,25 @@ int main() {
 			}
 
 			cin >> Qchoice;
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				system("CLS");
+			}
+
 
 			switch (Qchoice) {
 			case 1:
-				
+				cout << "Loading..." << endl;
+				while (getline(inFile, Tweets)) {
+					tweetnum++;
+				}
+				cout << "There are " << tweetnum << " Tweets in the file" << endl; cout << "Press R to reset" << endl;
+				cin >> reset;
+				if (reset == 'R' || reset == 'r') {
+					system("CLS");
+					break;
+				}
 			case 2:
 				
 			case 3:
@@ -55,11 +70,11 @@ int main() {
 			case 10:
 
 			default:
+				system("CLS");
 				break;
 			}
-			cout << "test" << endl;
 			if (keyword != "notset") {
-				cout << "Print Tweets containing the word " << keyword << "? Y/N" << endl;
+				cout << "Print Tweets containing the word " << keyword << "? Press Y to continue or any other key to exit." << endl;
 				cin >> yesno;
 				if (yesno == 'Y' || yesno == 'y') {
 					while (!inFile.eof()) {
@@ -75,20 +90,12 @@ int main() {
 					cout << "Press R to reset" << endl;
 					cin >> reset;
 					if (reset == 'R' || reset == 'r') {
-
-
+						system("CLS");
 					}
-
-				}
-				if (yesno == 'N' || yesno == 'n') {
-					system("CLS");
 
 				}
 				else if (yesno != 'Y' || yesno != 'y') {
 					system("CLS");
-					cout << "Incorrect Input" << endl;
-
-
 				}
 			}
 		} while (!answered);
